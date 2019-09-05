@@ -1,0 +1,39 @@
+<div class = "container">
+    <div id = "profile" style = "padding-top : 25px">
+        <div class="profile-block clearfix center ">
+            <div class= "cover">
+                <%= image_tag "cover.jpg"%>
+            </div>
+            <div class="info">
+                <div>
+                    <%= image_tag avatar_url(@user), class: "avatar"%>
+                </div>
+                <div class ="text clearfix">
+                    <div class ="flexcontainer username">
+                        <%= @user.name%>
+                    </div>
+                    
+                    <div class="action">
+						<div class="action-button">
+							<%= link_to 'Edit',edit_user_registration_url,class: "btn btn-default btn-round btn-edit"  %>
+						</div>
+					</div>
+                    <div class="flexcontainer email">
+                        <%= @user.email%>
+                    </div>
+                    <div class="statistic clearfix">
+						<div class="index">
+							<span class="count">0</span>
+							<span>Follower</span>
+						</div>
+						<div class="index">
+							<span class="count">0</span>
+						    <span> Following</span>
+						</div>
+					</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

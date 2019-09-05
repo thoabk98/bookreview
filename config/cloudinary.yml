@@ -1,0 +1,9 @@
+development:
+  cloud_name: "dffavrhvh"
+  api_key: "135336359593452"
+  api_secret: "tsNV3pFBWLY--OSZj8adGkU3_5w"
+
+production:
+  cloud_name: "dffavrhvh"
+  api_key: "135336359593452"
+  api_secret: "tsNV3pFBWLY--OSZj8adGkU3_5w"
