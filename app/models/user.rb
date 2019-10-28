@@ -1,10 +1,24 @@
 class User < ApplicationRecord
-  #mount_uploader :image_url, AvatarUploader
-  include Gravtastic
-  gravtastic 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_one :profile
+  accepts_nested_attributes_for :profile
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  
+         :recoverable, :rememberable, :validatable,:omniauthable
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+      
+    unless user
+      user = User.create(
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    auth.info.email,
+        username:  auth.info.name,
+        password: Devise.friendly_token[0, 20],
+        image:  auth.info.image
+      )
+    end
+      
+    user
+  end
 end

@@ -6,11 +6,11 @@
             </div>
             <div class="info">
                 <div>
-                    <%= image_tag avatar_url(@user), class: "avatar"%>
+                    <%= image_tag avatar_url(current_user), class: "avatar"%>
                 </div>
                 <div class ="text clearfix">
                     <div class ="flexcontainer username">
-                        <%= @user.name%>
+                        <%= current_user.username%>
                     </div>
                     
                     <div class="action">
@@ -19,7 +19,7 @@
 						</div>
 					</div>
                     <div class="flexcontainer email">
-                        <%= @user.email%>
+                        <%= current_user.email%>
                     </div>
                     <div class="statistic clearfix">
 						<div class="index">

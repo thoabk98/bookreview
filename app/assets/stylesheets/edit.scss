@@ -1,0 +1,68 @@
+#setting {
+  .post-container {
+    margin: 0 auto;
+    width: 60%; 
+    .account-setting {
+      margin: 25px 0;
+      background: #FFF;
+      border-radius: 3px;
+      -webkit-box-shadow: 0 0.5px 1px rgba(0,0,0,0.25);
+      -moz-box-shadow: 0 0.5px 1px rgba(0,0,0,0.25);
+      box-shadow: 0 0.5px 1px rgba(0,0,0,0.25);
+      .form-inner {
+        padding: 25px;
+        position: relative;
+        .form-grid {
+          margin-left: -20px;
+          margin-right: -20px;
+          .form-cell {
+            float: left;
+            width: 50%;
+            padding: 0 20px;
+            margin-bottom: 20px;
+            position: relative;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            .form-label {
+              color: #777;
+              display: block;
+              margin-bottom: 5px;
+            }
+            .form-control {
+              outline: 0;
+              border: 0;
+              border-bottom: 1px solid #CCC;
+              height: 35px;
+              line-height: 35px;
+              padding-left: 10px;
+              padding-right: 10px;
+              position: relative;
+              background: none;
+            }
+            .form-radio input[type="radio"] {
+              background: none;
+              display: inline-block;
+              vertical-align: middle;
+              margin-right: 10px;
+              height: 15px;
+              width: 15px;
+              border: 1px solid #999;
+              outline: 0;
+              border-radius: 50%;
+            }
+          }
+          .form-cell-fluid{
+            width: 100%;
+          }
+        }
+        .form-action {
+          margin-top: 25px;
+        }
+        .pull-right {
+          float: right;
+      }
+      }
+    }
+  }
+}
