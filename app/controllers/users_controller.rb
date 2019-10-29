@@ -1,19 +1,36 @@
-class UsersController < ApplicationController    
-    def new
-        @user = User.new
-        @user.profile.build
-      end
+class UsersController < ApplicationController
+  before_action :set_user, only: [:update, :show, :edit]
 
-    def update
-      binding.pry
-    end
+  def new
+      @user = User.new
+      @user.profile.build
+  end
 
-    def show
-        @user = User.find(params[:id])
+  def update
+    if @user.update user_params
+      redirect_to edit_user_path @user
+      # them flash alert bao thanh cong
+    else
+      # xu li fail, them flash alert
     end
-    private
-    
-    def user_params
-        params.require(:user).permit(profile_attributes: [:bio, :avatar, :sex])
-    end
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  private
+  def user_params
+    params.require(:user)
+          .permit(:email, :username, :current_password,
+                  :password, :password_confirmation,
+                  profile_attributes: [:bio, :avatar, :sex])
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+    raise ActionController::RoutingError.new('Not Found') unless @user.present?
+  end
 end
