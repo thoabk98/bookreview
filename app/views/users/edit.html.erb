@@ -1,0 +1,49 @@
+<div class="container">
+  <div id="setting">
+    <div class = "post-container">
+      <div class="account-setting">
+        <div class="cover">
+          <%= image_tag "cover.jpg"%>
+        </div>
+        <div class="form-inner">
+          <%= form_for @user do |f| %>
+            <div class="form-grid clearfix">
+              <div class="form-cell">
+                <%=f.label :username, class: "form-label"%><br>
+                <%=f.text_field :username, autofocus: true, autocomplete: "username",class: "form-control"%>
+              </div>
+              <div class="form-cell">
+                <%=f.label :email, class: "form-label"%><br>
+                <%=f.text_field :email, autofocus: true, autocomplete: "email",class: "form-control"%>
+              </div>
+            </div>
+            <div class="form-grid clearfix">
+              <div class="form-cell">
+                <%=f.fields_for :profile_attributes do |ff|%>
+                  <%=ff.label :sex,'Gender', class: "form-label"%>  <br>
+                  <div class="form-radio">
+                  <%=ff.label :sex_male, "Male"%>
+                  <%=ff.radio_button :sex, 'male', :checked => @user.profile.sex == 'male' %>
+                  <%=ff.label :sex_female,'Female'%>
+                  <%=ff.radio_button :sex, 'female', :checked => @user.profile.sex == 'female'%>
+                  <%=ff.label :sex_other,'Other'%>
+                  <%=ff.radio_button :sex, 'other', :checked => @user.profile.sex == 'other'%>
+                  </div>
+              <%end%>
+              </div>
+              <div class="form-cell">
+                <%=f.label "Date of birth", class: "form-label"%>
+              </div>
+            </div>
+            <div class="clearfix">
+              <div class="form-action pull-right">
+              <%=link_to('Cancel',user_path(current_user),class: "btn btn-danger btn-round")%>
+              <%=f.submit 'Save', class: "btn btn-primary btn-round"%>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
