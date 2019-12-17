@@ -5,16 +5,6 @@ html, body {
     height: 100%;
     margin: 0;
   }
-.navbar{
-    background-color: #5f5f5f;
-    height: 8%;
-}
-.navbar-text{
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-    color: #fff !important; 
-}
-
 .login-body {
     display: -ms-flexbox;
     display: -webkit-box;
@@ -134,4 +124,89 @@ html, body {
 }
 .center{
     margin: 0 auto;
+}
+#header{
+    .header-upper {
+        height: 65px;
+        background: #FFF;
+        z-index: 600;
+        width: 100%;
+        position: relative;
+        .outer-container{
+            width: 80%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            .header-home {
+                float: left;
+                margin-right: 15px;
+            }
+            .header-search {
+                display: inline-block;
+                position: absolute;
+                width: 400px;
+                padding: 17px 0 18px 40px;
+                .input {
+                    float: left;
+                    background: #FFF;
+                    border: 0;
+                    padding-left: 10px;
+                    outline: 0;
+                    width: 100%;
+                    height: 30px;
+                    box-sizing: border-box;
+                }
+                .submit {
+                    position: absolute;
+                    top: 12px;
+                    left: 0;
+                    border: 0;
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+            .header-account{
+                float: right;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background: #FFF;
+                position: relative;
+                .list-menu {
+                    position: relative;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 17px;
+                    padding: 0;
+                    .create-post {
+                        padding: 7px 0;
+                        margin-right: 15px;
+                    }
+                    li{
+                        float: left;
+                    }
+                    .dropdown {
+                        padding: 3px 0;
+                        margin-left: 5px;
+                        .dropdown-toggle {
+                            display: block;
+                            line-height: 39px;
+                            height: 39px;
+                            min-width: 39px;
+                            position: relative;
+                            text-align: center;
+                            white-space: nowrap;
+                        }
+                        .dropdown-toggle:after { content: none }
+                    }
+                    .account-access {
+                        padding-left: 20px;
+                        .useravatar{
+                            float: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

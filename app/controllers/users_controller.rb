@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user.profile = Profile.new if @user.profile.nil?
   end
 
   private

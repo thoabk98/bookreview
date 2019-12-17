@@ -24,8 +24,14 @@ class RegistrationsController < Devise::RegistrationsController
       render "edit"
     end
   end
-    private
-    def sign_up_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation)
-    end   
+
+  private
+
+  def sign_up_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  end
+
+  def account_update_params
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, profile_attributes: [:bio, :avatar, :sex])
+  end
 end

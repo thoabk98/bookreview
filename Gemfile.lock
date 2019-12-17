@@ -80,6 +80,8 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    ckeditor (5.0.0)
+      orm_adapter (~> 0.5.0)
     cloudinary (1.11.1)
       aws_cf_signer
       rest-client
@@ -302,6 +304,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   chromedriver-helper
+  ckeditor
   cloudinary
   coffee-rails (~> 4.2)
   devise
@@ -312,6 +315,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  mini_magick
   omniauth
   omniauth-facebook
   pry-rails
