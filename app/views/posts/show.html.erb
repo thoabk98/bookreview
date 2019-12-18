@@ -4,7 +4,14 @@
     <p><b>Content: </b><%= @post.content %></p>
   </div>
 </div>
-        <!-- load comment -->
+<div id="like-icon-post-<%= @post.id.to_s %>">
+  <%= render "like_icon", {is_liked: @is_liked, post: @post} %>
+</div>
+<div id="like-text-post-<%= @post.id.to_s %>">
+  <%= render "like_text", {likes: @likes} %>
+</div>
+<div class="post-time"><%= time_ago_in_words(@post.created_at) %> ago</div>
+
 <div id="comment-post-<%= @post.id.to_s %>">
   <%= render 'comment_list', post: @post %>
 </div>

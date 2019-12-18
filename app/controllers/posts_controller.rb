@@ -9,10 +9,6 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show
-    
-  end
-
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
@@ -25,6 +21,8 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
+    @likes = @post.likes.includes(:user)
+    @is_liked = @post.is_liked(current_user)
   end
 
   private
