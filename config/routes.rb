@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'pages#home'
   resources :users
-  resources :posts
-  resources :comments
+  resources :posts, only: [:index, :show, :create, :destroy, :new] do
+    resources :likes, only: [:create, :destroy], shallow: true
+    resources :comments, only: [:index, :create, :destroy], shallow: true
+  end
 end
