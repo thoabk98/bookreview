@@ -1,0 +1,25 @@
+<div class="card">
+	<div class="row">
+		<div class="col-md-5 wrapthumbnail">				
+			<div class="thumbnail" style="background-image:url(assets/images/default.jpg);">
+		</div>
+		</div>
+		<div class="col-md-7">
+	  	<div class="card-block">
+				<h2 class="card-title"><%= link_to p.title, post_path(:id => p.id)%></h2>
+				<h4 class="card-text">This is a longer card with supporting text below as a natural lead-in to
+								additional content. This content is a little bit longer.</h4>
+				<div class="metafooter">
+          <div class="wrapfooter">
+            <span class="meta-footer-thumb">
+              <%= image_tag avatar_url(p.user), class: "round-img author-thumb"%>
+            </span>
+            <span class="author-meta">
+              <span class="post-name"><%=p.user.username%></a></span><br />
+              <span class="post-time"><%= time_ago_in_words(p.created_at) %> ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
