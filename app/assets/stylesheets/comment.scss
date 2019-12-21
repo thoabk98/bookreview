@@ -1,0 +1,24 @@
+.delete-post-icon {
+  color: #262626;
+  font-size: 20px;
+}
+
+.delete-comment {
+  width: 11px;
+  height: 11px;
+  background-position: -216px -112px;
+  float: right;
+  margin: 5px 0 0 10px;
+}
+
+.hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
+}
+.core-sprite {
+  background-size: 405px 379px;
+  background-repeat: no-repeat;
+}
+.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}

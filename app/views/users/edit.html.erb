@@ -8,7 +8,6 @@
         <div class="form-inner">
           <%= form_for @user do |f| %>
             <div class="form-grid clearfix">
-
               <div class="form-cell">
                 <%=f.label :username, class: "form-label"%><br>
                 <%=f.text_field :username, autofocus: true, autocomplete: "username",class: "form-control"%>
@@ -31,11 +30,6 @@
                   <%=ff.radio_button :sex, 'other', :checked => @user.profile.sex == 'other'%>
                   </div>
               <%end%>
-              </div>
-              <div class="form-cell">
-                <%=f.label "Change password", class: "form-label clearfix"%>
-                <%= f.password_field :password, class: "form-control",placeholder: "New Password" %>
-                <%= f.password_field :password_confirmation, class: "form-control",placeholder: "Confirm Password" %>
               </div>
             </div>
             <div class="clearfix">

@@ -1,7 +1,19 @@
 <%= form_for [post, Comment.new], :html => {:class => "w-100"}, remote: true do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :post_id, value: post.id %>
-  <%= f.text_field :content, class: "form-control comment-input border-0",
-     placeholder: "Add a comment ...", autocomplete: :off %>
-  <%= f.submit %>
+  <div class="list-group-item">
+    <div class="row">
+      <div class="col-xs-2 col-md-1">
+        <%= image_tag avatar_url(current_user), class: "img-circle img-responsive", :size => '60x60'%>
+      </div>
+      <div class="col-xs-10 col-md-11">
+
+        <div class="comment-text">
+         <%= f.text_area :content, class: "form-control comment-input border-0",
+            placeholder: "Add a comment ...", autocomplete: :off %>
+        </div>
+          <%= f.submit %>
+      </div>
+    </div>
+  </div>
 <% end %>

@@ -1,23 +1,19 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:update, :show, :edit]
-
+  before_action :check_permission, only: %w[update, edit]
   def new
       @user = User.new
       @user.profile.build
   end
 
   def update
-    if @user.update user_params
+    if @user.update(user_params)
       redirect_to edit_user_path @user
-      # them flash alert bao thanh cong
+      flash[:notice] = "Saved..."
     else
-      # xu li fail, them flash alert
+      flash[:alert] = "Something went wrong ..."
     end
-  end
-
-  def show
-    
   end
 
   def edit
@@ -35,6 +31,9 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
     raise ActionController::RoutingError.new('Not Found') unless @user.present?
+  end
+
+  def check_permission
     if current_user != @user
       flash[:alert] = "You don't have permision"
       redirect_to root_path
