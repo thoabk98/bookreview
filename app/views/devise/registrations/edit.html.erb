@@ -19,22 +19,24 @@
               </div>
             </div>
             <div class="form-grid clearfix">
-              <div class="form-cell">
+             
                 <%=f.fields_for :profiles do |ff|%>
+                 <div class="form-cell">
                   <%=ff.label :sex,'Gender', class: "form-label"%>  <br>
                   <div class="form-radio">
-                  <%=ff.label :sex_male, "Male"%>
-                  <%=ff.radio_button :sex, 'male' %>
-                  <%=ff.label :sex_female,'Female'%>
-                  <%=ff.radio_button :sex, 'female'%>
-                  <%=ff.label :sex_other,'Other'%>
-                  <%=ff.radio_button :sex, 'other'%>
+                    <%=ff.label :sex_male, "Male"%>
+                    <%=ff.radio_button :sex, 'male' %>
+                    <%=ff.label :sex_female,'Female'%>
+                    <%=ff.radio_button :sex, 'female'%>
+                    <%=ff.label :sex_other,'Other'%>
+                    <%=ff.radio_button :sex, 'other'%>
                   </div>
-              <%end%>
-              </div>
-              <div class="form-cell">
-                <%=f.label "Date of birth", class: "form-label"%>
-              </div>
+                 </div>
+                  <div class="form-cell">
+                    <%=ff.label "Date of birth", class: "form-label"%>
+                    <%= ff.text_field :birthday, data:{ provide:'datepicker' } %>
+                  </div>
+                 <%end%>
             </div>
             <div class="clearfix">
               <div class="form-action pull-right">
