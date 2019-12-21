@@ -2,8 +2,8 @@
 <div class = "text-editor">
   <%= form_for @post,:html => {class: "form"} do |f| %>
     <%=f.text_field :title%><br>
-    <%=f.text_area(:content, size: '100x10')%><br>
-    <%= f.collection_select :category_id,Category.all,:id, :title %>
+    <%=f.text_area :content, class: "ckeditor"%><br>
+    <%= f.collection_select :category_id, Category.all,:id, :title %>
     <%=f.submit 'Save', class: "btn btn-primary btn-round"%>  
   <%end%>
   </div>

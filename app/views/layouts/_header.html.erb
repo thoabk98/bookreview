@@ -1,69 +1,56 @@
-<header id="header" style=": fixed;">
-  <div class="header-upper">
-    <div class="outer-container"> 
-      <div class="header-home">
-        <a class="navbar-brand navbar-text" href="/pages/home">
-        BookReview
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mediumnavigation">
+  <%= link_to "Bookreview", root_path, class: "navbar-brand"%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  				<!-- Begin Search -->
+	<form class="form-inline my-2 my-lg-0">
+		<input class="form-control mr-sm-2" type="text" placeholder="Search">
+			<span class="search-icon"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25">
+				<path
+					d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z">
+				</path>
+			</svg></span>
+	</form>
+				<!-- End Search -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Category
         </a>
-      </div>
-      <div class= "header-search">
-        <form novalidate="" class="ng-untouched ng-pristine ng-invalid">
-					<input class="input ng-untouched ng-pristine ng-invalid" formcontrolname="keyword" name="keyword" placeholder="Tìm kiếm theo tiêu đề, tác giả hoặc tag" type="text">
-					<button class="submit" name="submit" type="submit">
-						<svg xmlns:xlink="http://www.w3.org/1999/xlink" height="16px" version="1.1" viewBox="0 0 18 16" width="18px" xmlns="http://www.w3.org/2000/svg">
-							<g fill="none" fill-rule="evenodd" stroke="#555" stroke-width="1">
-								<circle cx="6.72972005" cy="6.8" r="6.23333333"></circle>
-								<path d="M11.3821289,11.4697917 L15.9154622,16.003125" stroke-linecap="round"></path>
-							</g>
-						</svg>
-					</button>
-				</form>
-      </div>
-      <div class="header-account">
-        <ul class="list-menu list-unstyled clearfix">
-          <li class="create-post">
-          <%= link_to 'Post', new_post_path ,class: "btn btn-primary btn-round btn-create-post"  %>
-		      </li>
-          <%if user_signed_in?%>
-            <li class="dropdown account-access">
-              <div class="useravatar">
-              <%= image_tag avatar_url(current_user), class: "round-img "%>   
-              </div>   
-              <a class="dropdown-toggle" data-toggle="dropdown">
-                <div class="username" style="margin-left:60px;">
-                  <span class="text" style="font-size: 18px;">
-                  <%=current_user.username%>
-                  </span>
-                  <span class="icon">
-                    <svg height="10" viewBox="0 0 1000 1000" width="10" x="0px" y="0px">
-                    <g><path d="M133.1,254.6l366.8,352.1L871.4,250l0,0c12.6-11.7,29.7-18.8,48.6-18.8c38.7,0,70,30.1,70,67.2c0,18.1-7.5,34.6-19.6,46.6l0,0l-420,403.2l0,0c-12.7,12.7-30.6,20.6-50.4,20.6c0,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0c-19.8,0-37.6-7.9-50.4-20.6l0,0l-420-403.2l0.2-0.2c-12-12.1-19.5-28.4-19.5-46.5c0-37.1,31.3-67.2,70-67.2C101.2,231.2,120.2,240.3,133.1,254.6z"></path></g>
-                    </svg>
-                  </span>
-                </div>
-              </a>
-                <ul class="dropdown-menu">
-                <li>
-                  <%= link_to('Logout', destroy_user_session_path, method: :delete,class: "dropdown-item") %>        
-                </li>
-                <li>
-                  <%= link_to "Profile",{ :controller => :users,
-                                          :action => :show,
-                                          :id => current_user.id},
-                                          :class => 'dropdown-item'%> 
-                </li>
-              </ul>
-            </li>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%Category.all.each do |c|%>
+          <a class="dropdown-item" href="#"><%=c.title%></a>
+            <%if c != Category.all.last%>
+            <div class="dropdown-divider"></div>
+            <%end%>
           <%end%>
-        </ul>
-      </div>
-    </div>
-    
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+			<li class="nav-item active">
+				<%= link_to 'Post', new_post_path ,class: "btn btn-primary btn-round create-post"  %>
+			</li>
+      <%if user_signed_in?%>
+			<li class="nav-item">				
+          <%= image_tag avatar_url(current_user), class: "round-img "%>  
+			</li> 
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%=current_user.username%>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+          <%= link_to "Profile",{ :controller => :users,
+                                  :action => :show,
+                                  :id => current_user.id},
+                                  :class => 'dropdown-item'%> 
+          <div class="dropdown-divider"></div>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete,class: "dropdown-item") %> 
+        </div>
+      </li>
+      <%end%>
+		</ul>
   </div>
-<div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-        <%Category.all.each do |c|%>
-          <a class="p-2 text-muted" href="#"><%=c.title%></a>
-        <%end%>
-        </nav>
-      </div>
-</header>
+</nav>
