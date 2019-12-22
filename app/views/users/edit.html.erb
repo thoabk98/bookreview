@@ -32,6 +32,12 @@
               <%end%>
               </div>
             </div>
+            <div class="form-grid clearfix">  
+              <div class="form-group ml-3 mr-3">
+                <label for="user_profile_attributes_bio">Your bio</label>
+                <textarea class="form-control" id="user_profile_attributes_bio" rows="3" name="user[profile_attributes][bio]"><%= @user.profile.bio %></textarea>
+              </div>
+            </div>
             <div class="clearfix">
               <div class="form-action pull-right">
               <%=link_to(t('form.cancel'),user_path(current_user),class: "btn btn-danger btn-round")%>
