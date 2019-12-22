@@ -1,10 +1,27 @@
 <div class="container">
 <div class = "text-editor">
   <%= form_for @post,:html => {class: "form"} do |f| %>
-    <%=f.text_field :title%><br>
+    <div class="row">
+      <div class="col-9">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" name="post[title]">
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select class="form-control" id="category" name="post[category_id]">
+          <% Category.all.each do |category| %>
+            <option value="<%= category.id %>"><%= category.title %></option>
+          <% end %>
+          </select>
+        </div>
+      </div>
+    </div>
     <%=f.text_area :content, class: "ckeditor"%><br>
-    <%= f.collection_select :category_id, Category.all,:id, :title %>
-    <%=f.submit 'Save', class: "btn btn-primary btn-round"%>  
+    <%=f.submit 'Save', class: "btn btn-primary btn-round"%>
   <%end%>
   </div>
 </div>

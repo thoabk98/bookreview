@@ -1,30 +1,30 @@
 <% post.comments.each do |comment| %>
 <div class="list-group-item">
-<div class="row">
-<div class="col-xs-2 col-md-1">
-<%= image_tag avatar_url(comment.user), class: "img-circle img-responsive", :size => '60x60'%>
-</div>
-<div class="col-xs-10 col-md-11">
-<div>
-<div class="mic-info">
-<span> <%=comment.user.username%></span><br>
-<span class="post-time"><%= time_ago_in_words(comment.created_at) %> ago</span>
-</div>
-</div>
-<div class="comment-text">
-<span><%= comment.content %></span>
-</div>
-<% if comment.user == current_user %>
-<div class="action">
-<button type="button" class="btn btn-danger btn-xs" title="Delete">
-<%= link_to "Delete comment", comment_path(comment),
-method: :delete, remote: true, class: "glyphicon glyphicon-remove delete-comment hide-text" %>
-</button>
-</div>
-                              
-<% end %>
-                              
-</div>
-</div>
+    <div class="row">
+        <div class="col-xs-2 col-md-1">
+        <%= image_tag avatar_url(comment.user), class: "img-circle img-responsive", :size => '60x60'%>
+        </div>
+        <div class="col-xs-10 col-md-11">
+            <div>
+                <div class="mic-info">
+                    <span> <%=comment.user.username%></span><br>
+                    <span class="post-time"><%= time_ago_in_words(comment.created_at) %> ago</span>
+                </div>
+            </div>
+            <div class="comment-text">
+                <span><%= comment.content %></span>
+            </div>
+        <% if comment.user == current_user %>
+            <div class="action">
+            <button type="button" class="btn btn-danger btn-xs" title="Delete">
+            <%= link_to "Delete comment", comment_path(comment),
+            method: :delete, remote: true, class: "glyphicon glyphicon-remove delete-comment hide-text" %>
+            </button>
+            </div>
+                                    
+        <% end %>
+                                    
+        </div>
+    </div>
 </div>
 <% end %>
