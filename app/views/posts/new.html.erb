@@ -2,6 +2,7 @@
 <div class = "text-editor">
   <%= form_for @post,:html => {class: "form"} do |f| %>
     <%=f.text_field :title%><br>
+    <%= f.file_field :cover, accept: "image/jpeg,image/gif,image/png" %>
     <%=f.text_area :content, class: "ckeditor"%><br>
     <%= f.collection_select :category_id, Category.all,:id, :title %>
     <%=f.submit 'Save', class: "btn btn-primary btn-round"%>  

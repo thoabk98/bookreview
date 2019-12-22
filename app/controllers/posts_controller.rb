@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     if params[:category_id]
       @category = Category.find params[:category_id]
       @posts = @category.posts
-    end 
+    end
   end
 
   def create
@@ -44,12 +44,12 @@ class PostsController < ApplicationController
   end
 
   private
-  
+
   def get_post
     @post = Post.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:content, :title, :category_id, :user_id)
+    params.require(:post).permit(:content, :title, :category_id, :user_id, :cover)
   end
 end
