@@ -1,8 +1,7 @@
 <div class="card">
 	<div class="row">
-		<div class="col-md-5 wrapthumbnail">				
-			<div class="thumbnail" style="background-image:url(assets/images/default.jpg);">
-		</div>
+		<div class="col-md-5 wrapthumbnail">		
+      <%= cl_image_tag("#{p.cover}", :width => 175, :height => 258,  :crop => :crop, :x => 20, :y => 30, :radius => 10) %>
 		</div>
 		<div class="col-md">
 	  	<div class="card-block">
