@@ -27,4 +27,9 @@
             </div>
         </div>
     </div>
+    <div class="card-columns listfeaturedtag">
+    <% @user.posts.each do |p| %>
+		<%=render 'posts/post', p: p%>
+    <%end%>
+	</div>
 </div>

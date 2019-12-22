@@ -1,9 +1,18 @@
 development:
-  cloud_name: "dffavrhvh"
-  api_key: "135336359593452"
-  api_secret: "tsNV3pFBWLY--OSZj8adGkU3_5w"
-
+  cloud_name: bookreview123
+  api_key: '661993266896223'
+  api_secret: cY014MFHGOptrhJCRWNO5BjBD9g
+  enhance_image_tag: true
+  static_file_support: false
 production:
-  cloud_name: "dffavrhvh"
-  api_key: "135336359593452"
-  api_secret: "tsNV3pFBWLY--OSZj8adGkU3_5w"
+  cloud_name: bookreview123
+  api_key: '661993266896223'
+  api_secret: cY014MFHGOptrhJCRWNO5BjBD9g
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: bookreview123
+  api_key: '661993266896223'
+  api_secret: cY014MFHGOptrhJCRWNO5BjBD9g
+  enhance_image_tag: true
+  static_file_support: false
