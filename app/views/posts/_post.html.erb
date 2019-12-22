@@ -17,6 +17,12 @@
             <span class="author-meta">
               <span class="post-name"><%=p.user.username%></a></span><br />
               <span class="post-time"><%= time_ago_in_words(p.created_at) %> ago</span>
+              <%if current_user == p.user%>
+              <span class="post-read-more">
+                <%= link_to "Delete post", post_path(p),
+                  method: :delete, remote: true, class: "delete-post hide-text" %>
+              </span>
+              <%end%>
           </div>
         </div>
       </div>
