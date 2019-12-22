@@ -1,3 +1,5 @@
 $('#comment-post-<%= @post.id.to_s %>').
   html('<%= j render "posts/comment_list", {post: @post} %>');
+$('#comment-total-post-<%= @post.id.to_s %>').
+  html('<%=@post.comments.count%>')
 console.log("delete comment success");

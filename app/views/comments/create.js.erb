@@ -1,4 +1,6 @@
 $('#comment-post-<%= @post.id.to_s %>').
   html('<%= j render "posts/comment_list", {post: @post} %>');
 $('#comment-form-post-<%= @post.id.to_s %> #comment_content').val("");
+$('#comment-total-post-<%= @post.id.to_s %>').
+  html('<%=@post.comments.count%>')
 console.log("create comment success");
