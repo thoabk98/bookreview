@@ -1,35 +1,36 @@
 <div class = "container">
-    <div id = "profile" style = "padding-top : 25px">
-        <div class="profile-block clearfix center ">
-            <div class= "cover">
-                <%= image_tag "cover.jpg"%>
-            </div>
-            <div class="info">
-                <div>
-                    <%= image_tag avatar_url(@user), class: "avatar"%>
-                </div>
-                <div class ="text clearfix">
-                    <div class ="flexcontainer username">
-                        <%= @user.username%>
-                    </div>
-                    
-                    <div class="action">
-                        <%if current_user == @user%>
-						<div class="action-button">
-							<%= link_to t('user.show.edit'), edit_user_path ,class: "btn btn-default btn-round btn-edit"  %>
-						</div>
-                        <%end%>
-					</div>
-                    <div class="flexcontainer email">
-                        <%= @user.email%>
-                    </div>
-                </div>                
-            </div>
+  <div id = "profile" style = "padding-top : 25px">
+    <div class="profile-block clearfix center ">
+      <div class= "cover">
+        <%= image_tag "cover.jpg"%>
+      </div>
+      <div class="info">
+        <div>
+          <%= image_tag avatar_url(@user), class: "avatar"%>
         </div>
+      <div class ="text clearfix">
+        <div class ="flexcontainer username">
+          <%= @user.username%>
+        </div>                  
+        <div class="action">
+          <%if current_user == @user%>
+					<div class="action-button">
+						<%= link_to 'Edit', edit_user_path ,class: "btn btn-default btn-round btn-edit"  %>
+					</div>
+          <%end%>
+				</div>
+        <div class="flexcontainer email">
+          <%= @user.email%>
+        </div>
+      </div>                
     </div>
-    <div class="card-columns listfeaturedtag">
+  </div>
+</div>
+<div class="card-columns listfeaturedtag col-12" style="display: contents">
     <% @user.posts.each do |p| %>
-		<%=render 'posts/post', p: p%>
-    <%end%>
+    <div class="profile-block clearfix center" style="width:665px">
+      <%=render 'posts/post', p: p%>
+    </div>
+    <% end %>
 	</div>
 </div>
