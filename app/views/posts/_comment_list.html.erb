@@ -8,7 +8,7 @@
 <div>
 <div class="mic-info">
 <span> <%=comment.user.username%></span><br>
-<span class="post-time"><%= time_ago_in_words(comment.created_at) %> ago</span>
+<span class="post-time"><%= time_ago_in_words(comment.created_at) %> <%= t('datetime.ago') %></span>
 </div>
 </div>
 <div class="comment-text">

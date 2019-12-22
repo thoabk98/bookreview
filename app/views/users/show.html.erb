@@ -16,7 +16,7 @@
                     <div class="action">
                         <%if current_user == @user%>
 						<div class="action-button">
-							<%= link_to 'Edit', edit_user_path ,class: "btn btn-default btn-round btn-edit"  %>
+							<%= link_to t('user.show.edit'), edit_user_path ,class: "btn btn-default btn-round btn-edit"  %>
 						</div>
                         <%end%>
 					</div>

@@ -9,24 +9,24 @@
           <%= form_for @user do |f| %>
             <div class="form-grid clearfix">
               <div class="form-cell">
-                <%=f.label :username, class: "form-label"%><br>
+                <%=f.label t('user.username'), class: "form-label"%><br>
                 <%=f.text_field :username, autofocus: true, autocomplete: "username",class: "form-control"%>
               </div>
               <div class="form-cell">
-                <%=f.label :email, class: "form-label"%><br>
+                <%=f.label t('user.email'), class: "form-label"%><br>
                 <%=f.text_field :email, autofocus: true, autocomplete: "email",class: "form-control"%>
               </div>
             </div>
             <div class="form-grid clearfix">
               <div class="form-cell">
                 <%=f.fields_for :profile_attributes do |ff|%>
-                  <%=ff.label :sex,'Gender', class: "form-label"%>  <br>
+                  <%=ff.label :sex, t('user.gender'), class: "form-label"%>  <br>
                   <div class="form-radio">
-                  <%=ff.label :sex_male, "Male"%>
+                  <%=ff.label :sex_male, t('user.male')%>
                   <%=ff.radio_button :sex, 'male', :checked => @user.profile.sex == 'male' %>
-                  <%=ff.label :sex_female,'Female'%>
+                  <%=ff.label :sex_female, t('user.female')%>
                   <%=ff.radio_button :sex, 'female', :checked => @user.profile.sex == 'female'%>
-                  <%=ff.label :sex_other,'Other'%>
+                  <%=ff.label :sex_other, t('user.other')%>
                   <%=ff.radio_button :sex, 'other', :checked => @user.profile.sex == 'other'%>
                   </div>
               <%end%>
@@ -34,8 +34,8 @@
             </div>
             <div class="clearfix">
               <div class="form-action pull-right">
-              <%=link_to('Cancel',user_path(current_user),class: "btn btn-danger btn-round")%>
-              <%=f.submit 'Save', class: "btn btn-primary btn-round"%>
+              <%=link_to(t('form.cancel'),user_path(current_user),class: "btn btn-danger btn-round")%>
+              <%=f.submit t('form.save'), class: "btn btn-primary btn-round"%>
               </div>
             </div>
           <%end%>
