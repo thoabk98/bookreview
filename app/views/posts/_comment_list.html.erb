@@ -7,18 +7,18 @@
     <div class="col-xs-10 col-md-11">
       <div>
         <div class="mic-info">
-          <span> <%=comment.user.username%></span><br>
-          <span class="post-time"><%= time_ago_in_words(comment.created_at) %> <%= t('datetime.ago') %></span>
+          <span class="badge badge-dark"> <%=comment.user.username%></span>
+          <span class="post-time"><em><%= time_ago_in_words(comment.created_at) %> <%= t('datetime.ago') %></em></span>
         </div>
       </div>
       <div class="comment-text">
-        <span><%= comment.content %></span>
+        <span class="h6"><%= comment.content %></span>
       </div>
       <% if comment.user == current_user %>
         <div class="action">
           <div class="clearfix">
             <div class="form-action pull-right">
-              <%= link_to(t('post.comment.delete'),comment_path(comment),class: "btn btn-danger btn-round")%>
+              <%= link_to(t('post.comment.delete'),comment_path(comment), method: :delete, remote: true,class: "btn btn-danger btn-round")%>
             </div>
           </div>
         </div>

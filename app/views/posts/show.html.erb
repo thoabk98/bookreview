@@ -46,12 +46,16 @@
           <%= image_tag avatar_url(current_user), class: "author-thumb"%>
 					</div>
 					<div class="col-md-10">
-					
-						<a class="link-dark"><%=@post.user.username%></a><a href="#" class="btn follow">Follow</a>
-						<span class="author-description">
+            <div>
+              <span class="badge badge-dark" style="color: #ffffff">
+                <%=@post.user.username%>
+              </span>
+              <a href="#" class="btn follow">Follow</a>
+              <span class="post-time"><%= time_ago_in_words(@post.created_at) %> <%= t('datetime.ago') %></span>
+            </div>
+            <span class="author-description">
 							<%= @post.user.profile.bio %>
 						</span>
-					  	<span class="post-time"><%= time_ago_in_words(@post.created_at) %> <%= t('datetime.ago') %></span>
 					</div>
 				</div>
 				<!-- End Top Menta -->

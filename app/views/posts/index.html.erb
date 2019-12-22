@@ -5,7 +5,7 @@
       <h2><span><%=Category.find(params[:category_id]).title%></span></h2>
 		</div>
 		<div class="card-columns listfeaturedtag">
-    <% @posts.each do |p| %>
+    <% @posts.order(created_at: :desc).each do |p| %>
 			<%=render 'post', p: p%>
     <%end%>
 		</div>
@@ -17,7 +17,7 @@
       <h2><span><%=c.title%></span></h2>
 		</div>
 		<div class="card-columns listfeaturedtag">
-    <% c.posts.limit(4).each do |p| %>
+    <% c.posts.order(created_at: :desc).limit(4).each do |p| %>
 			<%=render 'post', p: p%>
     <%end%>
 		</div>
