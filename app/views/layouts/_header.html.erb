@@ -5,7 +5,7 @@
   </button>
   				<!-- Begin Search -->
 	<form class="form-inline my-2 my-lg-0">
-		<input class="form-control mr-sm-2" type="text" placeholder="Search">
+		<input class="form-control mr-sm-2" type="text" placeholder="<%= t('header.search') %>">
 			<span class="search-icon"><svg class="svgIcon-use" width="25" height="25" viewbox="0 0 25 25">
 				<path
 					d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z">
@@ -17,7 +17,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Category
+          <%= t('header.category') %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%Category.all.each do |c|%>
@@ -29,9 +29,21 @@
         </div>
       </li>
     </ul>
+    <ul class="navbar-nav ml-auto" style="display:flex; list-style:none;">
+      <li> 
+        <%= link_to root_path(locale: :vn) do %>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/255px-Flag_of_Vietnam.svg.png" style="width:50px;height:30px;margin-right:10px">
+        <% end %>
+      </li>
+      <li> 
+        <%= link_to root_path(locale: :en) do %>
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png" style="width:50px;height:30px;">
+        <% end %>
+      </li>
+    </ul>
     <ul class="navbar-nav ml-auto">
 			<li class="nav-item active">
-				<%= link_to 'Post', new_post_path ,class: "btn btn-primary btn-round create-post"  %>
+				<%= link_to t('header.post'), new_post_path ,class: "btn btn-primary btn-round create-post"  %>
 			</li>
       <%if user_signed_in?%>
 			<li class="nav-item">				
@@ -42,12 +54,12 @@
           <%=current_user.username%>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
-          <%= link_to "Profile",{ :controller => :users,
+          <%= link_to t('header.profile'),{ :controller => :users,
                                   :action => :show,
                                   :id => current_user.id},
                                   :class => 'dropdown-item'%> 
           <div class="dropdown-divider"></div>
-          <%= link_to('Logout', destroy_user_session_path, method: :delete,class: "dropdown-item") %> 
+          <%= link_to(t('header.logout'), destroy_user_session_path, method: :delete,class: "dropdown-item") %> 
         </div>
       </li>
       <%end%>

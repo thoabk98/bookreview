@@ -16,7 +16,7 @@
             </span>
             <span class="author-meta">
               <span class="post-name"><%=p.user.username%></a></span><br />
-              <span class="post-time"><%= time_ago_in_words(p.created_at) %> ago</span>
+              <span class="post-time"><%= time_ago_in_words(p.created_at) %> <%= t('datetime.ago') %></span>
           </div>
         </div>
       </div>

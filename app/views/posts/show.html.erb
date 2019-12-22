@@ -3,7 +3,7 @@
 				<div class="col-md-2 col-xs-12">
 			<div class="share">
 				<p>
-					Share
+					<%= t('post.show.share') %>
 				</p>
 				<ul>
 					<li>
@@ -22,7 +22,7 @@
 				<div class="sep">
 				</div>
 				<p>
-					Talk
+					<%= t('post.show.comment') %>
 				</p>
 				<ul>
 					<li>
@@ -48,7 +48,7 @@
 					<div class="col-md-10">
 						<a class="link-dark"><%=@post.user.username%></a><a href="#" class="btn follow">Follow</a>
 						<span class="author-description">Founder of WowThemes.net and creator of <b>"Mediumish"</b> theme that you're currently previewing. Developing professional premium themes, templates, plugins, scripts since 2012.</span>
-					  <span class="post-time"><%= time_ago_in_words(@post.created_at) %> ago</span>
+					  <span class="post-time"><%= time_ago_in_words(@post.created_at) %> <%= t('datetime.ago') %></span>
 					</div>
 				</div>
 				<!-- End Top Menta -->
