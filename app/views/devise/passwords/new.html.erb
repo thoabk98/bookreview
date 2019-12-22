@@ -1,16 +1,31 @@
-<h2><%= t('user.password.forgot.message') %></h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card-header"><%= t('user.password_devise.forgot.message') %></div>
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <div class="form-group row">
+            <label for="email" class="col-md-4 col-form-label text-md-right"><%= t('user.email') %></label>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="col-md-6">
+                <input id="email" type="email" class="form-control" name="user[email]" autocomplete= "email" autofocus required>
+            </div>
+          </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit t('user.password.forgot.instruction') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+          <div class="form-group row mb-0">
+            <div class="col-md-8 offset-md-4">
+              <button type="submit" class="btn btn-success mb-2">
+                <%= t('user.password_devise.forgot.instruction') %>
+              </button>
+              <div class="d-flex">
+                <%= render "devise/shared/links" %>
+              </div>
+            </div>
+          </div>
+          
+        <% end %>
+      </div>
+    </div>
+  </div> 
+</div>

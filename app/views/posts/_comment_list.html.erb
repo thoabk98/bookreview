@@ -16,12 +16,11 @@
             </div>
         <% if comment.user == current_user %>
             <div class="action">
-            <button type="button" class="btn btn-danger btn-xs" title="Delete">
-            <%= link_to "Delete comment", comment_path(comment),
-            method: :delete, remote: true, class: "glyphicon glyphicon-remove delete-comment hide-text" %>
-            </button>
+             <div class="clearfix">
+              <div class="form-action pull-right">
+              <%= link_to(t('post.comment.delete'),comment_path(comment),class: "btn btn-danger btn-round")%>
+              </div>
             </div>
-                                    
         <% end %>
                                     
         </div>

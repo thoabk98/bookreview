@@ -28,92 +28,6 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
-vn:
-  datetime:
-    ago: 'trước'
-    distance_in_words:
-      half_a_minute: "nửa phút"
-      less_than_x_seconds:
-        one:   "ít hơn 1 giây"
-        other: "ít hơn %{count} giây"
-      x_seconds:
-        one:   "1 second"
-        other: "%{count} giây"
-      less_than_x_minutes:
-        one:   "ít hơn 1 phút"
-        other: "ít hơn %{count} phút"
-      x_minutes:
-        one:   "1 phút"
-        other: "%{count} phút"
-      about_x_hours:
-        one:   "khoảng 1 giờ"
-        other: "khoảng %{count} giờ"
-      x_days:
-        one:   "1 ngày"
-        other: "%{count} ngày"
-      about_x_months:
-        one:   "khoảng 1 tháng"
-        other: "khoảng %{count} tháng"
-      x_months:
-        one:   "1 tháng"
-        other: "%{count} tháng"
-      about_x_years:
-        one:   "khoảng 1 năm"
-        other: "khoảng %{count} năm"
-      over_x_years:
-        one:   "hơn 1 year"
-        other: "hơn %{count} năm"
-      almost_x_years:
-        one:   "gần 1 year"
-        other: "gần %{count} năm"
-    prompts:
-      year:   "Năm"
-      month:  "Tháng"
-      day:    "Ngày"
-      hour:   "Giờ"
-      minute: "Phút"
-      second: "Giây"
-  header:  
-    category: 'Thể loại'
-    search: 'Tìm kiếm'
-    post: 'Viết Review'
-    profile: 'Trang cá nhân'
-    logout: 'Đăng xuất'
-  form:
-    edit: 'Chỉnh sửa'
-    cancel: 'Huỷ'
-    save: 'Lưu'
-  post:
-    show:
-      share: 'Chia sẻ'
-      comment: 'Bình luận'
-      comment_placeholder: 'Viết comment ở đây...'
-  user:
-    sign_in:
-      label: 'Đăng nhập'
-      email: 'Email'
-      password: 'Mật khẩu'
-      forgot_password: 'Quên mật khẩu'
-      sign_in_with: 'Đăng nhập với '
-    sign_up:
-      label: 'Đăng ký'
-      password_confirmation: 'Xác nhận mật khẩu'
-      character_minimum: 'kí tự tối thiểu'
-    password:
-      change:
-        message: 'Đổi mật khẩu'
-      forgot:
-        message: 'Quên mật khẩu ?'
-        instruction: 'Gửi tôi hướng dẫn reset Mật khẩu'
-    username: 'Tên đăng nhập'
-    email: 'Email'
-    password: 'Mật khẩu'
-    gender: 'Giới tính'
-    male: 'Nam'
-    female: 'Nữ'
-    other: 'Khác'
-
 en:
   header:  
     category: 'Categories'
@@ -126,10 +40,16 @@ en:
     cancel: 'Cancel'
     save: 'Save'
   post:
+    new:
+      title: 'Title'
+      cover: 'Upload Cover'
+      category: 'Category'
     show:
       share: 'Share'
       comment: 'Comment'
       comment_placeholder: 'Write comment here...'
+    comment:
+      delete: 'Delete'
   user:
     sign_in:
       label: 'Sign In'
@@ -141,7 +61,7 @@ en:
       label: 'Sign Up'
       password_confirmation: 'Password Confirmation'
       character_minimum: 'minimum characters'
-    password:
+    password_devise:
       change:
         message: 'Change Password'
       forgot:

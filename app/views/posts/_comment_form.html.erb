@@ -7,12 +7,11 @@
         <%= image_tag avatar_url(current_user), class: "img-circle img-responsive", :size => '60x60'%>
       </div>
       <div class="col-xs-10 col-md-11">
-
         <div class="comment-text mb-3">
          <%= f.text_area :content, class: "form-control comment-input border-0",
             placeholder: t('post.show.comment_placeholder'), autocomplete: :off %>
         </div>
-          <%= f.submit %>
+          <%= f.submit 'Comment', class: "btn btn-primary btn-round" %>
       </div>
     </div>
   </div>
