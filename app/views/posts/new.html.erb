@@ -1,7 +1,6 @@
 <div class="container">
 <div class = "text-editor">
   <%= form_for @post,:html => {class: "form"} do |f| %>
-    <%= f.file_field :cover, accept: "image/jpeg,image/gif,image/png" %>
     <div class="row">
       <div class="col-9">
         <div class="form-group">
@@ -21,8 +20,25 @@
         </div>
       </div>
     </div>
+    
     <%=f.text_area :content, class: "ckeditor"%><br>
-    <%=f.submit 'Save', class: "btn btn-primary btn-round"%>
+      
+
+    <div class="row">
+      <div class="col">
+        <div><label for="category">Upload cover</label></div>
+        <div><%= f.file_field :cover, accept: "image/jpeg,image/gif,image/png" %></div>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col">
+        <div class="form-group">
+          <%=f.submit 'Save', class: "btn btn-primary btn-round"%>
+        </div>
+      </div>
+    </div>
+    
   <%end%>
   </div>
 </div>
